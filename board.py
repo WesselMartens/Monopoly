@@ -15,12 +15,12 @@ class Board:
     def construct_tiles(self, config_grid):
         tiles = []
         for tile_idx in range(len(config_grid)):
-            tile_type, tile_name = config_grid.loc[tile_idx][2:4]
+            tile_type, tile_name, tile_group = config_grid.loc[tile_idx][2:5]
             if tile_type == "start":
-                tile = Start(tile_idx, tile_name)
+                tile = Start(tile_idx, tile_name, tile_group)
             elif tile_type == "property":
-                tile_price, tile_rent = config_grid.loc[tile_idx][4:6]
-                tile = Property(tile_idx, tile_name, tile_price, tile_rent)
+                tile_price, tile_rent = config_grid.loc[tile_idx][5:7]
+                tile = Property(tile_idx, tile_name, tile_group, tile_price, tile_rent)
             tiles.append(tile)
         return tiles
     
