@@ -1,7 +1,4 @@
-import numpy as np
-
 from board import Board
-from tile import Start, Prison, Parking, GoToPrison, Station, Property
 from player import Player
 
 class Game:
@@ -12,11 +9,8 @@ class Game:
         self.welcome()
 
     def play(self):
-        
         while self.game_over != True:
-            
             for player in self.players:
-                
                 if player.bankrupt:
                     pass
                 else:

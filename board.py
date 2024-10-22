@@ -5,10 +5,13 @@ class Board:
     
     def __init__(self, config_name):
         self.config = self.load_config(config_name)
+        
+        self.prison_index = None
         self.tiles = self.construct_tiles()
+        self.length = len(self.tiles)
+        
         self.tile_groups = self.construct_tile_groups()
-        self.tile_group_names = self.get_tile_group_names()
-        self.length= len(self.tiles)
+        self.tile_group_names = self.list_tile_groups()
     
     def load_config(self, config_name):
         config_grid = pd.read_csv("config_board.csv")
@@ -41,7 +44,7 @@ class Board:
             tile_groups.setdefault(tile.group, []).append(tile)
         return tile_groups
     
-    def get_tile_group_names(self):
+    def list_tile_groups(self):
         return sorted(self.tile_groups.keys())
     
     def display(self):
