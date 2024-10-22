@@ -1,3 +1,10 @@
+# Features to add
+# 1 Use of tile groups
+# 2 Building houses/hotels
+# 3 Chance cards
+# 4 Print board option
+# 5 Interactive turns
+
 from board import Board
 from player import Player
 

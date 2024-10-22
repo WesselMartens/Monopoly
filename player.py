@@ -37,7 +37,7 @@ class Player:
         print(f"Player {self} throws {dice} and moves to tile {self.position}: {self.tile}")
 
     def change_position(self, number, mode='relative'):
-        self.check_start_crossing(self, number, mode)
+        self.check_start_crossing(number, mode) # to do: change order
         if mode == 'relative':
             self.position = (self.position + number) % self.board.length
         elif mode == 'absolute':
@@ -46,11 +46,13 @@ class Player:
     
     def check_start_crossing(self, number, mode):
         if mode == 'relative':
-            if (self.position + number) > self.board.length:
+            if (self.position + number) >= self.board.length:
                 print(f"Player {self} passes Start and receives $200!")
                 self.money += 200
         elif mode == 'absolute':
-            if number < self.position:
+            if number == self.board.prison_index:
+                print(f"Player {self} will not pass Start and receive anything.")
+            elif number < self.position:
                 print(f"Player {self} passes Start and receives $200!")
                 self.money += 200
     

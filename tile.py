@@ -24,8 +24,7 @@ class Prison(Tile):
         super().__init__(board, index, name, group)
 
     def interact(self, player):
-        print(f"Player {player} goes to jail for 3 turns!")
-        player.jail_turns = 3
+        print(f"Player {player} visits the jail.")
     
 class Parking(Tile):
     def __init__(self, board, index, name, group):
